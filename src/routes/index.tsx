@@ -1,15 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import samPortrait from "@/assets/sam-zemidjan.jpg";
-import zemZemImage from "@/assets/zemzem-cotonou.jpg";
-import abomeyImage from "@/assets/abomey-tresors.jpg";
+import { ArrowDown, ArrowUpRight, CircleDot, Sparkles } from "lucide-react";
+import universeImage from "@/assets/africafun-deux-univers.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Studio en orbite — Fabrique audiovisuelle béninoise" },
-      { name: "description", content: "Un studio audiovisuel béninois hybride, porté par Zem Zem et Abomey, le Retour." },
-      { property: "og:title", content: "Studio en orbite — Deux univers, une nation en mouvement" },
-      { property: "og:description", content: "Découvrez une nouvelle fabrique audiovisuelle béninoise et ses deux séries originales." },
+      { title: "Africafun AI Studio — Création humaine, intelligence augmentée" },
+      { name: "description", content: "Africafun AI Studio réunit trois talents, trois conseillers et huit agents IA pour créer des univers audiovisuels béninois." },
+      { property: "og:title", content: "Africafun AI Studio — Une intelligence collective augmentée" },
+      { property: "og:description", content: "Découvrez une nouvelle manière d’organiser un studio de création, de l’idée à la communauté." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -17,73 +16,159 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const agents = [
-  "Directeur artistique", "Showrunner", "Scénariste / Storyboarder", "Continuité",
-  "Video Producer", "Monteur / Audio", "Social Media", "Growth Agent",
+const talents = [
+  { name: "Roméo", role: "Direction créative & recherche", text: "Il transforme les intuitions en concepts, personnages, histoires et univers cohérents.", chain: "Recherche → idée → univers" },
+  { name: "Césaire", role: "Vidéo & postproduction", text: "Il donne forme aux intentions : plans, montage, rythme, voix, son et masters.", chain: "Image → vidéo → diffusion" },
+  { name: "Fleur", role: "Community & Social Media", text: "Elle relie les œuvres aux plateformes et aux communautés, avec un regard humain.", chain: "Œuvre → public → apprentissage", badge: "Jeune talent en formation" },
 ];
 
-const roadmap = [
-  ["Mi-octobre", "Aligner", "Bootcamp, tests voix et vidéo, stabilisation du flux de production."],
-  ["Novembre", "Produire", "Cadence de croisière : deux Zem Zem et un Trésor chaque semaine."],
-  ["Décembre", "Accélérer", "Optimisation des outils créatifs et réglage fin des tonalités."],
-  ["Janvier", "Déployer", "Consolidation opérationnelle et lancement des formats dérivés."],
+const advisers = [
+  { name: "Stéphane", role: "Vision & ambition", question: "Est-ce que ce que nous créons nous rapproche réellement de notre ambition ?" },
+  { name: "Rodrigue", role: "Éditorial, culture & impact", question: "Est-ce que ce que nous racontons a du sens et de la valeur à transmettre ?" },
+  { name: "Legrand", role: "Technique & IA", question: "Comment construire une infrastructure capable d’évoluer avec la technologie ?" },
 ];
+
+const agents = [
+  ["01", "Directeur artistique", "Garde les personnages, décors et palettes fidèles à chaque univers."],
+  ["02", "Showrunner", "Transforme une intuition en concepts, arcs narratifs et épisodes."],
+  ["03", "Scénariste & storyboarder", "Décompose l’histoire en scènes, plans, mouvements et atmosphères."],
+  ["04", "Gardien de la continuité", "Conserve la mémoire des personnages, lieux, règles et récits."],
+  ["05", "Producteur vidéo", "Transforme les storyboards et images en matière vidéo exploitable."],
+  ["06", "Monteur & audio", "Assemble le rythme, les voix, le son, les sous-titres et les formats."],
+  ["07", "Social Media Manager", "Décline chaque œuvre en contenus adaptés à chaque plateforme."],
+  ["08", "Community & Growth", "Observe les réactions du public et nourrit les créations suivantes."],
+];
+
+const months = [
+  ["M01", "Aligner", "Vision, méthode, rôles et premiers tests."],
+  ["M02", "Construire", "Bibles créatives, chaînes et outils partagés."],
+  ["M03", "Tester", "Pilotes, voix, vidéo et contrôle qualité."],
+  ["M04", "Lancer", "Premières publications et prise de rythme."],
+  ["M05", "Produire", "La cadence de création s’installe."],
+  ["M06", "Décliner", "Formats courts, sociaux et éditoriaux."],
+  ["M07", "Diffuser", "Les œuvres rencontrent leurs publics."],
+  ["M08", "Observer", "Les usages et réactions sont analysés."],
+  ["M09", "Affiner", "Les formats et les tonalités progressent."],
+  ["M10", "Étendre", "Nouveaux récits et nouveaux territoires."],
+  ["M11", "Consolider", "La méthode devient un réflexe collectif."],
+  ["M12", "Rayonner", "Le studio prépare le cycle suivant."],
+];
+
+const workflow = ["Une idée", "Une histoire", "Un univers", "Une production", "Une œuvre", "Une communauté", "Des données", "Une nouvelle création"];
 
 function Index() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-ink font-body text-bone antialiased selection:bg-gold selection:text-ink">
-      <header className="mx-auto flex max-w-7xl items-center justify-between px-5 pt-6 sm:px-8 lg:px-10 lg:pt-8">
-        <a href="#top" className="flex items-center gap-3" aria-label="Retour en haut">
-          <span className="grid size-9 place-items-center rounded-full bg-gold font-display text-lg font-semibold text-ink">S</span>
-          <span className="leading-tight"><strong className="block font-display text-lg font-medium">Studio en orbite</strong><small className="block text-[10px] uppercase tracking-[0.3em] text-bone-dim">Cotonou · Bénin</small></span>
-        </a>
-        <nav className="hidden items-center gap-8 text-sm text-bone-dim md:flex" aria-label="Navigation principale">
-          <a href="#univers" className="transition-colors hover:text-gold">Univers</a><a href="#territoire" className="transition-colors hover:text-gold">Territoire</a><a href="#studio90" className="transition-colors hover:text-gold">Studio 90</a><a href="#equipe" className="transition-colors hover:text-gold">Équipe</a>
-        </nav>
-        <a href="#contact" className="rounded-full border border-bone/25 px-4 py-2 text-xs transition-colors hover:bg-bone hover:text-ink sm:px-5 sm:text-sm">Co-construire</a>
+    <div className="min-h-screen overflow-x-hidden bg-canvas font-body text-navy selection:bg-sun selection:text-navy">
+      <header className="absolute inset-x-0 top-0 z-20 border-b border-cream/20 text-cream">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
+          <a href="#top" className="flex items-center gap-3" aria-label="Retour en haut">
+            <span className="grid size-10 place-items-center bg-sun font-display text-lg font-bold text-navy">AF</span>
+            <span className="font-display text-lg font-semibold">Africafun <i className="font-normal text-sun">AI Studio</i></span>
+          </a>
+          <nav className="hidden gap-7 text-xs uppercase tracking-[0.16em] md:flex" aria-label="Navigation principale">
+            <a href="#univers" className="transition-colors hover:text-sun">Univers</a>
+            <a href="#architecture" className="transition-colors hover:text-sun">Équipe</a>
+            <a href="#calendrier" className="transition-colors hover:text-sun">Calendrier</a>
+          </nav>
+          <a href="#contact" className="border border-cream/35 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-colors hover:bg-cream hover:text-navy">Échanger</a>
+        </div>
       </header>
 
       <main id="top">
-        <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-16 pt-16 sm:px-8 lg:grid-cols-12 lg:px-10 lg:pb-24 lg:pt-24">
-          <div className="lg:col-span-7">
-            <p className="mb-6 text-[11px] uppercase tracking-[0.35em] text-gold">Nouvelle fabrique audiovisuelle · 12 mois</p>
-            <h1 className="font-display text-[clamp(3.2rem,8vw,7rem)] leading-[0.9] tracking-normal">Deux univers.<br/><em className="font-medium text-gold">Une</em> nation<br/><span className="text-ember">en mouvement.</span></h1>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-bone-dim">Mettre en orbite le studio vidéo de référence au Bénin : une équipe humaine experte, augmentée par huit agents virtuels, pour créer vite sans jamais sacrifier la singularité.</p>
-            <div className="mt-9 flex flex-wrap gap-4"><a href="#univers" className="rounded-full bg-gold px-7 py-3.5 font-medium text-ink transition-colors hover:bg-bone">Explorer les univers</a><a href="#studio90" className="rounded-full border border-bone/25 px-7 py-3.5 transition-colors hover:border-gold hover:text-gold">Voir les 90 jours</a></div>
+        <section className="relative flex min-h-[92svh] items-end overflow-hidden bg-navy text-cream">
+          <img src={universeImage.url} alt="Les univers Zem Zem et Abomey réunis entre Cotonou et un musée futuriste" className="absolute inset-0 size-full object-cover" />
+          <div className="absolute inset-0 bg-hero-overlay" />
+          <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-5 pb-12 pt-36 sm:px-8 md:pb-16 lg:grid-cols-12 lg:px-10">
+            <div className="lg:col-span-8">
+              <p className="mb-5 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-sun"><span className="h-px w-10 bg-sun"/>Studio de création augmenté · Cotonou</p>
+              <h1 className="max-w-5xl font-display text-[clamp(3.1rem,7.5vw,7.5rem)] leading-[0.88] tracking-normal">Une équipe humaine.<br/><em className="font-medium text-sun">Une intelligence</em><br/>collective augmentée.</h1>
+              <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/80 md:text-lg">La vision reste humaine. L’intelligence artificielle accélère la création, la production, la diffusion et l’apprentissage.</p>
+            </div>
+            <div className="flex items-end lg:col-span-4 lg:justify-end">
+              <div className="grid w-full max-w-sm grid-cols-3 border-y border-cream/30 py-5 text-center">
+                {[["3","talents"],["3","conseillers"],["8","agents IA"]].map(([n,label]) => <div key={label}><strong className="block font-display text-4xl text-sun">{n}</strong><span className="text-[9px] uppercase tracking-[0.16em] text-cream/70">{label}</span></div>)}
+              </div>
+            </div>
           </div>
-          <div className="floaty lg:col-span-5">
-            <div className="rounded-[28px] border border-bone/15 bg-ink-soft p-3 shadow-2xl shadow-ink">
-              <div className="overflow-hidden rounded-[20px] bg-ink-card">
-                <div className="flex items-center justify-between border-b border-bone/10 px-4 py-3"><span className="flex gap-2"><i className="size-2 rounded-full bg-ember"/><i className="size-2 rounded-full bg-gold"/><i className="size-2 rounded-full bg-bone/40"/></span><span className="text-[10px] uppercase tracking-[0.25em] text-bone-dim">En production · Cotonou</span></div>
-                <img src={samPortrait} alt="Sam, héros zemidjan de Zem Zem" width={816} height={816} className="aspect-[16/10] w-full object-cover object-center" />
-                <div className="p-4"><div className="mb-4 flex items-end justify-between"><div><p className="font-display text-2xl">Studio en orbite</p><p className="text-xs text-bone-dim">Deux séries · un seul moteur</p></div><span className="text-[10px] uppercase tracking-[0.2em] text-ember">Signal actif</span></div><div className="grid grid-cols-3 gap-2">{[["52","semaines"],["4","villes"],["8","agents"]].map(([n,l])=><div key={l} className="rounded-lg bg-ink p-3"><p className="font-display text-2xl text-gold">{n}</p><p className="mt-1 text-[9px] uppercase tracking-[0.12em] text-bone-dim">{l}</p></div>)}</div></div>
+          <a href="#univers" aria-label="Découvrir les univers" className="absolute bottom-5 right-5 grid size-11 place-items-center border border-cream/35 text-cream transition-colors hover:bg-sun hover:text-navy sm:right-8 lg:right-10"><ArrowDown size={18}/></a>
+        </section>
+
+        <section id="univers" className="bg-canvas py-24 lg:py-32">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+            <div className="mb-12 grid gap-6 lg:grid-cols-12">
+              <p className="section-kicker lg:col-span-3">Deux œuvres fondatrices</p>
+              <h2 className="font-display text-5xl leading-[0.95] md:text-7xl lg:col-span-9">Le rire pour circuler.<br/><em className="text-forest">La mémoire pour durer.</em></h2>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              <article className="group relative min-h-[620px] overflow-hidden bg-sun">
+                <img src={universeImage.url} alt="Sam, conducteur de zemidjan, et sa passagère dans les rues de Cotonou" className="absolute inset-0 size-full object-cover object-left transition-transform duration-700 group-hover:scale-[1.025]" />
+                <div className="absolute inset-0 bg-card-overlay"/>
+                <div className="absolute inset-x-0 bottom-0 p-7 text-cream md:p-9"><p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-sun">Comédie visuelle · Cotonou</p><h3 className="font-display text-5xl">Zem Zem</h3><p className="mt-3 max-w-md leading-relaxed text-cream/80">Sam transforme chaque course en aventure. Un héros populaire, un humour physique et une ville pleine de mouvement.</p></div>
+              </article>
+              <article className="group relative min-h-[620px] overflow-hidden bg-navy">
+                <img src={universeImage.url} alt="Un trésor royal d’Abomey s’éveille dans un musée futuriste" className="absolute inset-0 size-full object-cover object-right transition-transform duration-700 group-hover:scale-[1.025]" />
+                <div className="absolute inset-0 bg-card-overlay"/>
+                <div className="absolute inset-x-0 bottom-0 p-7 text-cream md:p-9"><p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-sun">Aventure · Histoire · Science-fiction</p><h3 className="font-display text-5xl">Abomey, le Retour</h3><p className="mt-3 max-w-md leading-relaxed text-cream/80">Les trésors royaux s’éveillent la nuit. Chaque objet devient une voix et un passage vers l’histoire.</p></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="architecture" className="border-y border-line bg-paper py-24 lg:py-32">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+            <div className="grid gap-10 lg:grid-cols-12">
+              <div className="lg:col-span-4"><p className="section-kicker">Architecture humaine + IA</p><h2 className="mt-4 font-display text-5xl leading-none md:text-6xl">Les humains donnent la direction.</h2><p className="mt-6 max-w-md leading-relaxed text-navy/65">Une équipe resserrée prend les décisions et porte la responsabilité. Les agents spécialisés amplifient son geste sans jamais la remplacer.</p></div>
+              <div className="lg:col-span-8">
+                <div className="mb-5 grid gap-5 md:grid-cols-3">
+                  {talents.map((talent, i) => <article key={talent.name} className="border-t-4 border-forest bg-canvas p-6 shadow-soft"><div className="flex items-start justify-between"><span className="text-xs font-semibold text-forest">0{i+1}</span>{talent.badge && <span className="max-w-[9rem] bg-sun px-2 py-1 text-right text-[8px] font-bold uppercase tracking-[0.12em]">{talent.badge}</span>}</div><h3 className="mt-9 font-display text-3xl">{talent.name}</h3><p className="mt-1 text-xs font-bold uppercase tracking-[0.12em] text-forest">{talent.role}</p><p className="mt-5 text-sm leading-relaxed text-navy/65">{talent.text}</p><p className="mt-7 border-t border-line pt-4 text-xs font-semibold">{talent.chain}</p></article>)}
+                </div>
+                <div className="grid gap-px bg-line md:grid-cols-3">
+                  {advisers.map((adviser) => <article key={adviser.name} className="bg-navy p-6 text-cream"><p className="text-[9px] font-bold uppercase tracking-[0.18em] text-sun">Conseiller · {adviser.role}</p><h3 className="mt-6 font-display text-3xl">{adviser.name}</h3><p className="mt-4 font-display text-base italic leading-relaxed text-cream/70">« {adviser.question} »</p></article>)}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <div className="overflow-hidden border-y border-bone/10 py-4"><div className="marquee flex w-max gap-10 whitespace-nowrap font-display text-2xl text-bone/40">{[0,1].map(i=><span key={i} className="flex gap-10"><span>Cotonou</span><b className="text-gold">·</b><span>Ouidah</span><b className="text-gold">·</b><span>Porto-Novo</span><b className="text-gold">·</b><span>Parakou</span><b className="text-gold">·</b></span>)}</div></div>
-
-        <section id="univers" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
-          <div className="mb-12 flex items-end justify-between gap-6"><div><p className="text-[11px] uppercase tracking-[0.3em] text-gold">Deux publics · un seul moteur</p><h2 className="mt-4 max-w-3xl font-display text-4xl tracking-normal md:text-6xl">Le rire pour circuler.<br/><em className="text-gold">La mémoire pour durer.</em></h2></div><span className="hidden text-[11px] uppercase tracking-[0.3em] text-bone-dim sm:block">01 / 04</span></div>
-          <div className="grid gap-6 md:grid-cols-2">
-            <article className="group overflow-hidden rounded-3xl border border-bone/10 bg-ink-card"><div className="overflow-hidden"><img src={zemZemImage} alt="Sam en course dans les rues de Cotonou" loading="lazy" width={1088} height={1360} className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"/></div><div className="p-7"><span className="text-[10px] uppercase tracking-[0.25em] text-ember">Comédie visuelle · 2 à 3 min · Vertical</span><h3 className="mt-3 font-display text-4xl">Zem Zem</h3><p className="mt-3 leading-relaxed text-bone-dim">Sam est persuadé d’être le meilleur chauffeur du Bénin. Chaque client devient une aventure absurde où sa confiance se retourne contre lui. Un humour physique, presque sans paroles, pensé pour voyager partout.</p><p className="mt-6 border-t border-bone/10 pt-5 font-display text-xl italic text-bone">« On ne choisit pas toujours son chauffeur… mais on se souvient toujours de Sam. »</p></div></article>
-            <article className="group overflow-hidden rounded-3xl border border-bone/10 bg-ink-card"><div className="overflow-hidden"><img src={abomeyImage} alt="Les trésors royaux d’Abomey s’éveillent la nuit" loading="lazy" width={1088} height={1360} className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"/></div><div className="p-7"><span className="text-[10px] uppercase tracking-[0.25em] text-gold">Aventure 3D · Histoire · Familles</span><h3 className="mt-3 font-display text-4xl">Abomey, le Retour</h3><p className="mt-3 leading-relaxed text-bone-dim">Dans un musée de Cotonou, les 26 trésors royaux restitués s’éveillent chaque nuit. Hector, gardien nocturne, les suit à travers le temps et reconnecte les nouvelles générations à leur histoire.</p><p className="mt-6 border-t border-bone/10 pt-5 font-display text-xl italic text-bone">Chaque objet devient une voix, une mémoire et un passage vers le royaume d’Abomey.</p></div></article>
+        <section className="relative overflow-hidden bg-navy py-24 text-cream lg:py-32">
+          <div className="network-grid absolute inset-0 opacity-25"/>
+          <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+            <div className="mb-12 grid gap-6 lg:grid-cols-12"><p className="section-kicker text-sky lg:col-span-3">Infrastructure créative</p><div className="lg:col-span-9"><h2 className="font-display text-5xl leading-none md:text-7xl">Huit intelligences spécialisées.<br/><em className="text-sky">Une seule chaîne.</em></h2><p className="mt-6 max-w-2xl text-cream/65">Chaque agent est une fonction au service de l’équipe. Ensemble, ils font circuler les idées jusqu’au public.</p></div></div>
+            <div className="grid border-l border-t border-cream/15 sm:grid-cols-2 lg:grid-cols-4">
+              {agents.map(([number,name,text]) => <article key={number} className="group min-h-64 border-b border-r border-cream/15 p-6 transition-colors hover:bg-blue-glow"><div className="flex items-center justify-between"><span className="font-display text-3xl text-sky">{number}</span><CircleDot size={18} className="text-sky"/></div><h3 className="mt-10 font-display text-2xl leading-tight">{name}</h3><p className="mt-4 text-sm leading-relaxed text-cream/60">{text}</p></article>)}
+            </div>
           </div>
         </section>
 
-        <section id="territoire" className="border-y border-bone/10 bg-ink-soft"><div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32"><div className="grid gap-14 lg:grid-cols-12"><div className="lg:col-span-5"><p className="text-[11px] uppercase tracking-[0.3em] text-gold">52 semaines · couverture nationale</p><h2 className="mt-4 font-display text-5xl md:text-6xl">Bâtir un monument. Cartographier un pays.</h2><p className="mt-6 leading-relaxed text-bone-dim">Les 26 trésors donnent naissance à 52 récits, pendant que Zem Zem prend la route. Une présence continue qui relie patrimoine, territoire et culture populaire.</p></div><div className="lg:col-span-7"><div className="grid gap-4 sm:grid-cols-2">{[["01","Cotonou","Le point de départ : la rue, le rythme, l’énergie."],["02","Ouidah","Une mémoire vivante tournée vers le monde."],["03","Porto-Novo","La capitale culturelle et ses récits pluriels."],["04","Parakou","Le nord, ses visages et l’horizon régional."]].map(([n,city,text])=><div key={city} className="rounded-2xl border border-bone/10 bg-ink-card p-6"><p className="font-display text-5xl text-gold">{n}</p><h3 className="mt-4 font-display text-2xl">{city}</h3><p className="mt-2 text-sm leading-relaxed text-bone-dim">{text}</p></div>)}</div></div></div></div></section>
+        <section className="bg-forest py-20 text-cream lg:py-24">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+            <p className="section-kicker text-sun">De l’idée à la communauté</p>
+            <div className="mt-8 flex flex-wrap items-center gap-y-5">
+              {workflow.map((step, i) => <div key={step} className="flex items-center"><span className="whitespace-nowrap font-display text-xl md:text-2xl">{step}</span>{i < workflow.length - 1 && <ArrowUpRight className="mx-3 text-sun" size={18}/>}</div>)}
+            </div>
+            <p className="mt-10 font-display text-4xl italic text-sun">Chaque œuvre nourrit la suivante.</p>
+          </div>
+        </section>
 
-        <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32"><div className="grid gap-12 lg:grid-cols-12"><div className="lg:col-span-4"><p className="text-[11px] uppercase tracking-[0.3em] text-gold">Le cerveau virtuel</p><h2 className="mt-4 font-display text-5xl">Huit expertises. Un flux continu.</h2><p className="mt-6 leading-relaxed text-bone-dim">Un système coordonné automatise la transmission des données et relie direction artistique, production, montage et diffusion.</p></div><div className="grid gap-px overflow-hidden rounded-2xl border border-bone/10 bg-bone/10 sm:grid-cols-2 lg:col-span-8">{agents.map((agent,i)=><div key={agent} className="bg-ink-card p-5 transition-colors hover:bg-ink-soft"><span className="text-[10px] text-gold">A-{String(i+1).padStart(2,"0")}</span><p className="mt-2 font-display text-xl">{agent}</p></div>)}</div></div></section>
+        <section id="calendrier" className="bg-canvas py-24 lg:py-32">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+            <div className="grid gap-7 lg:grid-cols-12"><p className="section-kicker lg:col-span-3">Une année pour installer le studio</p><div className="lg:col-span-9"><h2 className="font-display text-5xl leading-none md:text-7xl">Trois mois pour préparer.<br/><em className="text-red">Neuf mois pour déployer.</em></h2><p className="mt-5 max-w-2xl text-navy/65">Le démarrage construit les fondations. Le reste de l’année installe la cadence, les formats et la boucle d’apprentissage.</p></div></div>
+            <div className="timeline-scroll mt-14 overflow-x-auto pb-4">
+              <div className="grid min-w-[1120px] grid-cols-12 border-t border-line">
+                {months.map(([month,title,text],i) => <article key={month} className={`relative border-r border-line px-4 pb-5 pt-8 ${i < 3 ? "bg-sun-soft" : "bg-paper"}`}><span className={`absolute -top-2 left-4 size-4 rounded-full border-4 border-canvas ${i < 3 ? "bg-red" : "bg-forest"}`}/><p className="text-[9px] font-bold uppercase tracking-[0.16em] text-navy/45">{month}</p><h3 className="mt-4 font-display text-2xl">{title}</h3><p className="mt-3 text-xs leading-relaxed text-navy/60">{text}</p></article>)}
+              </div>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-5 text-[10px] font-semibold uppercase tracking-[0.15em]"><span className="flex items-center gap-2"><i className="size-2 rounded-full bg-red"/> Préparation · 90 jours</span><span className="flex items-center gap-2"><i className="size-2 rounded-full bg-forest"/> Installation · 9 mois</span></div>
+          </div>
+        </section>
 
-        <section id="studio90" className="border-y border-bone/10 bg-ink-soft"><div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32"><div className="mb-14 flex items-end justify-between"><div><p className="text-[11px] uppercase tracking-[0.3em] text-gold">Studio 90</p><h2 className="mt-4 font-display text-5xl md:text-6xl">Les 90 premiers jours</h2><p className="mt-5 max-w-2xl text-bone-dim">Construire, roder et fiabiliser la machine de production avant de changer d’échelle.</p></div><span className="hidden text-[11px] uppercase tracking-[0.3em] text-bone-dim sm:block">03 / 04</span></div><div className="grid gap-4 lg:grid-cols-4">{roadmap.map(([date,verb,text],i)=><article key={date} className="relative rounded-2xl border border-bone/10 bg-ink-card p-6"><span className="text-[10px] uppercase tracking-[0.2em] text-ember">{date}</span><p className="mt-10 font-display text-3xl text-gold">{verb}</p><p className="mt-3 text-sm leading-relaxed text-bone-dim">{text}</p><span className="absolute right-5 top-5 font-display text-3xl text-bone/10">0{i+1}</span></article>)}</div></div></section>
-
-        <section id="equipe" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32"><div className="grid gap-10 lg:grid-cols-12"><div className="lg:col-span-5"><p className="text-[11px] uppercase tracking-[0.3em] text-gold">L’équipe qui rend le modèle possible</p><h2 className="mt-4 font-display text-5xl md:text-6xl">Des humains aux commandes.</h2><p className="mt-6 max-w-lg leading-relaxed text-bone-dim">Six professionnels dirigent la vision, la création technique et la communication. Les agents virtuels prolongent leur capacité — ils ne remplacent ni leur regard, ni leur responsabilité.</p></div><div className="grid gap-4 sm:grid-cols-2 lg:col-span-7"><div className="rounded-2xl border border-bone/10 bg-ink-card p-7"><p className="font-display text-7xl text-gold">3</p><h3 className="mt-4 font-display text-2xl">Cœur créatif & opérationnel</h3><p className="mt-3 text-sm leading-relaxed text-bone-dim">Direction créative, création technique et communication portée par un jeune talent formé par l’équipe.</p></div><div className="rounded-2xl border border-bone/10 bg-ink-card p-7"><p className="font-display text-7xl text-ember">3</p><h3 className="mt-4 font-display text-2xl">Maîtrises & conseil</h3><p className="mt-3 text-sm leading-relaxed text-bone-dim">Vision, maîtrise technique des processus, exigence éditoriale et culturelle.</p></div></div></div></section>
-
-        <section id="contact" className="border-t border-bone/10"><div className="mx-auto max-w-7xl px-5 py-24 text-center sm:px-8 lg:px-10 lg:py-32"><p className="text-[11px] uppercase tracking-[0.3em] text-gold">Une proposition concrète</p><h2 className="mx-auto mt-5 max-w-4xl font-display text-5xl md:text-7xl">Co-construisons le studio vidéo de référence au Bénin.</h2><p className="mx-auto mt-6 max-w-2xl leading-relaxed text-bone-dim">Deux œuvres originales. Une méthode de production nouvelle. Une ambition nationale capable de rayonner bien au-delà.</p><a href="mailto:sb@afrikafun.com" className="mt-10 inline-block rounded-full bg-gold px-8 py-4 font-medium text-ink transition-colors hover:bg-bone">Entrer en conversation</a></div></section>
+        <section id="contact" className="relative overflow-hidden bg-sun py-24 lg:py-32">
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-12 lg:px-10"><div className="lg:col-span-9"><p className="section-kicker">Africafun AI Studio</p><h2 className="mt-5 max-w-5xl font-display text-5xl leading-[0.95] md:text-7xl">Une petite équipe.<br/>Une grande capacité de création.</h2><p className="mt-6 max-w-2xl text-lg leading-relaxed text-navy/70">Transformer une idée en univers, un univers en œuvres et des œuvres en communautés.</p></div><div className="flex items-end lg:col-span-3 lg:justify-end"><a href="mailto:sb@afrikafun.com" className="inline-flex items-center gap-3 bg-navy px-6 py-4 font-semibold text-cream transition-transform hover:-translate-y-1">Entrer en conversation <ArrowUpRight size={18}/></a></div></div>
+          <Sparkles className="absolute right-[8%] top-16 text-red/30" size={84}/>
+        </section>
       </main>
 
-      <footer className="border-t border-bone/10"><div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 py-10 sm:px-8 md:flex-row md:items-center lg:px-10"><div><p className="font-display text-2xl">Studio en orbite</p><p className="mt-1 text-sm text-bone-dim">Une fabrique audiovisuelle béninoise d’excellence.</p></div><p className="text-xs uppercase tracking-[0.2em] text-bone-dim">Cotonou · Bénin</p></div></footer>
+      <footer className="bg-navy text-cream"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 px-5 py-9 sm:px-8 md:flex-row md:items-center lg:px-10"><p className="font-display text-2xl">Africafun <i className="text-sun">AI Studio</i></p><p className="text-[10px] uppercase tracking-[0.2em] text-cream/55">Cotonou · Bénin · Création humaine augmentée</p></div></footer>
     </div>
   );
 }
